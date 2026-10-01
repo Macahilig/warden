@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "warden-autohit",
+  "version": "${version}",
+  "name": "Warden Auto Hit",
+  "description": "Raycasts for nearby Warden entities and auto-attacks them when detected.",
+  "authors": ["you"],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/autowarden/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "main": ["com.example.wardenautohit.WardenAutoHitMod"],
+    "client": ["com.example.wardenautohit.WardenAutoHitClient"]
+  },
+  "mixins": [],
+  "depends": {
+    "fabricloader": ">=0.16.0",
+    "minecraft": "~1.21.11",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
+}
