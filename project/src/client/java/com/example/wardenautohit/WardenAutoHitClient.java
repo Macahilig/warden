@@ -12,6 +12,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ProjectileUtil;
 import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.Box;
@@ -21,6 +22,10 @@ import org.lwjgl.glfw.GLFW;
 import java.util.function.Predicate;
 
 public class WardenAutoHitClient implements ClientModInitializer {
+
+    // keybinding category, shown as its own group in Options > Controls
+    private static final KeyBinding.Category CATEGORY =
+            KeyBinding.Category.create(Identifier.of("warden-autohit", "general"));
 
     // toggled with a keybind so it isn't always running
     private static boolean enabled = false;
@@ -35,7 +40,7 @@ public class WardenAutoHitClient implements ClientModInitializer {
                 "key.warden-autohit.toggle",
                 InputUtil.Type.KEYSYM,
                 GLFW.GLFW_KEY_G,
-                "category.warden-autohit"
+                CATEGORY
         ));
 
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
